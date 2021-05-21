@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "_up94ka",
+			"path": "."
+		},
+		{
+			"name": "up94ka-client",
+			"path": "up94ka-client"
+		},
+		{
+			"path": "up94ka-server"
+		}
+	],
+	"settings": {}
+}
