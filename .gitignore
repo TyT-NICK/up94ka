@@ -1,4 +1,13 @@
 node_modules/
 
-up94ka-client
-up94ka-server
+# client-side
+up94ka-client/node_modules/
+
+# server-side
+up94ka-server/node_modules/
+up94ka-server/.env
+
+
+# "git-clone-server": "git clone https://github.com/TyT-NICK/up94ka-server",
+# "git-clone-client": "git clone https://github.com/TyT-NICK/up94ka-client",
+# "git-clone": "concurrently \"npm run clone-server\" \"npm run clone-client\""

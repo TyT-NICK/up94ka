@@ -1,14 +1,15 @@
 {
   "name": "up94ka",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"cd up94ka-server && npm run dev\" \"cd up94ka-client && npm start\"",
-    "start": "concurrently \"cd up94ka-server && npm run start\" \"cd up94ka-client && npm start\""
+    "install-server-deps": "cd up94ka-server && npm i",
+    "install-client-deps": "cd up94ka-client && npm i",
+    "install-deps": "concurrently \"npm run install-server-deps\" \"npm run install-client-deps\"",
+    "run-server": "cd up94ka-server && npm run dev",
+    "run-client": "cd up94ka-client && npm start",
+    "start": "concurrently \"npm run run-server\" \"npm run run-client\""
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "concurrently": "^6.1.0"
   }
