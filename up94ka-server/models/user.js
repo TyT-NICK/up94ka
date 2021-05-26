@@ -7,10 +7,7 @@ const userSchema = mongoose.Schema({
   secondName: String,
   lastName: String,
   createdAt: { type: Date, default: Date.now() },
-  role: {
-    isAdmin: { type: Boolean, default: false },
-    isOperator: { type: Boolean, default: false },
-  },
+  role: { type: Number, default: 0 },
 });
 
 module.exports = mongoose.model('User', userSchema);

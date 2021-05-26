@@ -1,5 +1,7 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const redis = require('redis');
+const RedisStorage = require('connect-redis')(session);
 const mongoose = require('mongoose');
 
 const router = require('./router');
@@ -7,11 +9,28 @@ const messages = require('./messages');
 
 const app = express();
 
-const PORT = process.env.PORT || 8080;
-const COOKIESECRET = process.env.CookieSecret;
+const PORT = process.env.Port || 8080;
+const SECRET = process.env.Secret;
+const REDIS_PORT = process.env.RedisPort;
+
+const redisClient = redis.createClient({
+  host: 'localhost',
+  port: REDIS_PORT,
+});
+
+app.use(session({
+  secret: SECRET,
+  store: new RedisStorage({ client: redisClient }),
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false,
+    maxAge: 12 * 60 * 60 * 1000, /* 12 hours */
+    // signed: true,
+  },
+}));
 
 app.use(express.json());
-app.use(cookieParser(COOKIESECRET));
 
 // app.use('/*', (req, _, next) => {
 //   console.log(req.baseUrl);

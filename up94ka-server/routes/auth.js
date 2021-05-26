@@ -3,14 +3,10 @@ const router = require('express').Router();
 const User = require('../models/user');
 const messages = require('../messages');
 
-// FIXME insecure login
 const login = (req, res) => {
-  const options = {
-    maxAge: 12 * 60 * 60 * 1000, /* 12 hours */
-    signed: true,
-  };
-
-  res.status(200).cookie('UID', req.UID, options).send(messages.loginSuccess);
+  console.log(req.user);
+  req.session.userRole = req.user.role;
+  res.status(200).send(messages.loginSuccess);
 };
 
 router.post('/signup', async (req, res, next) => {
@@ -29,7 +25,7 @@ router.post('/signup', async (req, res, next) => {
     next(error);
   });
 
-  req.UID = newUser._id;
+  req.user = newUser;
   return login(req, res);
 });
 
@@ -49,12 +45,13 @@ router.post('/signin', async (req, res) => {
     return res.status(400).send(messages.wrongPassword);
   }
 
-  req.UID = user._id;
+  req.user = user;
   return login(req, res);
 });
 
 router.get('/signout', (req, res) => {
-  res.clearCookie('UID').send(messages.logoutSuccess);
+  req.session.destroy();
+  res.send(messages.logoutSuccess);
 });
 
 module.exports = router;
