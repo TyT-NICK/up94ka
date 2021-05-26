@@ -13,3 +13,9 @@ The system for determing crime penalty.
 - `npm start` to launch both client and server
 - `npm run run-server` to launch server
 - `npm run run-client` to launch client
+
+### Server env variables
+- `Port` - the port app should be listening on
+- `DbConnection` - mongoDB connection string
+- `Secret` - secret string used in signing sid-cookie
+- `RedisPort` - port on which redis-server runs
