@@ -13,7 +13,7 @@ POST http://localhost:8080/auth/signin HTTP/1.1
 content-type: application/json
 
 {
-    "email": "s",
+    "email": "",
     "password": "1",
     "fistName": "asd",
     "secondName": "zxc",

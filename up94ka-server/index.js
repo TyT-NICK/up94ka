@@ -10,8 +10,9 @@ const messages = require('./messages');
 const app = express();
 
 const PORT = process.env.Port || 8080;
-const SECRET = process.env.Secret;
-const REDIS_PORT = process.env.RedisPort;
+const SECRET = process.env.Secret || 'default secret';
+const REDIS_PORT = process.env.RedisPort || 6379;
+const DB_CONNECTION = process.env.DbConnection;
 
 const redisClient = redis.createClient({
   host: 'localhost',
@@ -26,16 +27,11 @@ app.use(session({
   cookie: {
     secure: false,
     maxAge: 12 * 60 * 60 * 1000, /* 12 hours */
-    // signed: true,
+    signed: true,
   },
 }));
 
 app.use(express.json());
-
-// app.use('/*', (req, _, next) => {
-//   console.log(req.baseUrl);
-//   next();
-// });
 
 app.use('/', router);
 
@@ -46,7 +42,7 @@ app.use((error, req, res, next) => {
 });
 
 const connectionOptions = { useNewUrlParser: true, useUnifiedTopology: true };
-mongoose.connect(process.env.DbConnection, connectionOptions, (error) => {
+mongoose.connect(DB_CONNECTION, connectionOptions, (error) => {
   if (error) { console.error(error.message); }
 });
 
