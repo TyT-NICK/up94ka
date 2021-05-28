@@ -7,4 +7,5 @@ module.exports = {
   wrongPassword: 'Введен неверный пароль',
   loginSuccess: 'Вход выполнен успешно',
   logoutSuccess: 'Успешный выход из системы',
+  userNotFound: 'Пользователь не найден',
 };
