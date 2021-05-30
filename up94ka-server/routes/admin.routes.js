@@ -10,15 +10,15 @@ const checkIfUserIsAdmin = (req, res, next) => {
 
 router.use(checkIfUserIsAdmin);
 
-router.post('/change-user-access/:id', async (req, res) => {
-  const { id } = req.params;
-  const { role } = req.body;
+router.post('/set-user-role', async (req, res) => {
+  const { id, email, role } = req.body;
 
-  const user = await User.findById(id).exec();
+  let user = await User.findById(id).exec();
 
+  if (!user) user = await User.findOne({ email }).exec();
   if (!user) return res.status(404).send(messages.userNotFound);
 
-  user.update({ role });
+  await user.updateOne({ role });
 
   return res.send(messages.userUpdated);
 });

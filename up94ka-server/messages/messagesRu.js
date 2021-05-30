@@ -10,4 +10,5 @@ module.exports = {
   userNotFound: 'Пользователь не найден',
   accessDenied: 'Доступ запрещен',
   userUpdated: 'Информация о пользователе обновлена',
+  notFound: 'Запрашиваемый адрес не найден',
 };
