@@ -10,4 +10,4 @@ const userSchema = mongoose.Schema({
   role: { type: Number, default: 0 },
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = { User: mongoose.model('User', userSchema), userSchema };

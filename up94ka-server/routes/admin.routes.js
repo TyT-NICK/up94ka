@@ -1,7 +1,9 @@
 const router = require('express').Router();
-const User = require('../models/user');
+const { User } = require('../models/user');
 const messages = require('../messages');
-const Notification = require('../models/notifications');
+const Notification = require('../models/notification');
+const Report = require('../models/report');
+const utils = require('../utils/utils');
 
 const checkIfUserIsAdmin = (req, res, next) => {
   if (req.session.user.role !== 2) return res.status(403).send(messages.accessDenied);
@@ -32,6 +34,18 @@ router.post('/post-notification', async (req, res) => {
   notification.save();
 
   res.send(messages.notificationCreated);
+});
+
+router.get('/get-reports', async (_, res) => {
+  let reports = await Report.find().exec();
+
+  reports = reports.map((report) => report._doc)
+    .map((report) => ({
+      ...report,
+      from: utils.removeFieldsFromObject(report.from._doc, 'password', 'role'),
+    }));
+
+  res.send(reports);
 });
 
 module.exports = router;

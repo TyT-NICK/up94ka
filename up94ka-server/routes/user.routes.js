@@ -1,20 +1,31 @@
 const router = require('express').Router();
-const User = require('../models/user');
+const { User } = require('../models/user');
 const messages = require('../messages');
 const utils = require('../utils/utils');
-const Notifications = require('../models/notifications');
+const Notification = require('../models/notification');
+const Report = require('../models/report');
 
-router.get('/get-notifications', async (req, res) => {
+router.get('/notifications', async (req, res) => {
   const { user } = req.session;
   if (!user) return res.status(403).send(messages.loginNeeded);
 
   const { role } = user;
 
-  const notifications = await Notifications.find({ to: 0 });
-  if (role >= 1) notifications.push(...await Notifications.find({ to: 1 }));
-  if (role === 2) notifications.push(...await Notifications.find({ to: 2 }));
+  const notifications = await Notification.find({ to: 0 });
+  if (role >= 1) notifications.push(...await Notification.find({ to: 1 }));
+  if (role === 2) notifications.push(...await Notification.find({ to: 2 }));
 
   return res.json(notifications);
+});
+
+router.post('/report', (req, res) => {
+  const { user } = req.session;
+  const reportInfo = req.body;
+
+  const report = new Report({ ...reportInfo, from: user });
+  report.save();
+
+  res.send(messages.thanksForReporting);
 });
 
 router.get('/:id', async (req, res) => {

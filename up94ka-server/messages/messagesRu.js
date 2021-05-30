@@ -13,4 +13,5 @@ module.exports = {
   notFound: 'Запрашиваемый адрес не найден',
   notificationCreated: 'Оповещение создано',
   loginNeeded: 'Необходимо войти или зарегистрироваться',
+  thanksForReporting: 'Благодарим за сообщение',
 };
