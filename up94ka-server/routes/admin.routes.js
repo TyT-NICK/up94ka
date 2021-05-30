@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const User = require('../models/user');
 const messages = require('../messages');
+const Notification = require('../models/notifications');
 
 const checkIfUserIsAdmin = (req, res, next) => {
-  if (req.session.role !== 2) return res.status(403).send(messages.accessDenied);
+  if (req.session.user.role !== 2) return res.status(403).send(messages.accessDenied);
 
   return next();
 };
@@ -21,6 +22,16 @@ router.post('/set-user-role', async (req, res) => {
   await user.updateOne({ role });
 
   return res.send(messages.userUpdated);
+});
+
+router.post('/post-notification', async (req, res) => {
+  const notificationInfo = req.body;
+  const from = req.session.user._id;
+
+  const notification = new Notification({ ...notificationInfo, from });
+  notification.save();
+
+  res.send(messages.notificationCreated);
 });
 
 module.exports = router;

@@ -11,4 +11,5 @@ module.exports = {
   accessDenied: 'Доступ запрещен',
   userUpdated: 'Информация о пользователе обновлена',
   notFound: 'Запрашиваемый адрес не найден',
+  notificationCreated: 'Оповещение создано',
 };

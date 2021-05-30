@@ -4,7 +4,7 @@ const User = require('../models/user');
 const messages = require('../messages');
 
 const login = (req, res) => {
-  req.session.role = req.user.role;
+  req.session.user = req.user;
   res.status(200).send(messages.loginSuccess);
 };
 
