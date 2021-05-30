@@ -13,14 +13,11 @@ router.post('/signup', async (req, res, next) => {
 
   const userCheck = await User.findOne({ email: userInfo.email });
 
-  if (userCheck) {
-    return res.status(400).send(messages.emailAlreadyTaken);
-  }
+  if (userCheck) return res.status(400).send(messages.emailAlreadyTaken);
 
   const newUser = new User({ ...userInfo });
 
   newUser.save((error) => {
-    res.status(500).send('user not created');
     next(error);
   });
 
