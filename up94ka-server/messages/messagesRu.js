@@ -8,4 +8,6 @@ module.exports = {
   loginSuccess: 'Вход выполнен успешно',
   logoutSuccess: 'Успешный выход из системы',
   userNotFound: 'Пользователь не найден',
+  accessDenied: 'Доступ запрещен',
+  userUpdated: 'Информация о пользователе обновлена',
 };
