@@ -36,7 +36,9 @@ app.use(express.json());
 app.use('/', router);
 
 app.use((error, req, res, next) => {
-  console.error(req.baseUrl, error.message, error.stack);
+  console.error(req.baseUrl);
+  console.error(error.message);
+  console.error(error.stack);
   res.status(500).send(messages.innerServerError);
   next();
 });
