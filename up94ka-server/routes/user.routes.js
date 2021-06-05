@@ -6,11 +6,11 @@ const utils = require('../utils/utils')
 router
   .post('/:id/set-role', utils.checkIfUserIsAdmin, async (req, res) => {
     const id = req.params.id
-    const { email, role } = req.body
+    const { role } = req.body
 
     let user = await User.findById(id).exec()
 
-    if (!user) user = await User.findOne({ email }).exec()
+    // if (!user) user = await User.findOne({ email }).exec()
     if (!user) return res.status(404).send(messages.userNotFound)
 
     await user.updateOne({ role })
