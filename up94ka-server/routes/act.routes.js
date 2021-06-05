@@ -60,6 +60,7 @@ router
       addedBy: req.session.user._id,
       modifiedBy: req.session.user._id,
     })
+    await actVersion.save()
     const mainPunishments = req.body.mainPunishments
 
     mainPunishments.forEach(async (mPunishment, i) => {
@@ -71,6 +72,7 @@ router
         type: mType,
         rates: mPunishment.rates,
       })
+      await mainPunishment.save()
 
       mPunishment.additionalPunishments.forEach(async (aPunishment) => {
         const aType = await PunishmentType.findOne({
@@ -82,21 +84,25 @@ router
           rates: aPunishment.rates,
           optional: aPunishment.optional,
         })
-
         await additionalPunishment.save()
+
         mainPunishment.additionalPunishments.push(additionalPunishment._id)
-        await mainPunishment.save()
+        await MainPunishment.findByIdAndUpdate(mainPunishment._id, {
+          additionalPunishments: mainPunishment.additionalPunishments,
+        })
       })
 
       actVersion.mainPunishments.push(mainPunishment._id)
-      await actVersion.save()
+      await ActVersion.findByIdAndUpdate(actVersion._id, {
+        mainPunishments: actVersion.mainPunishments,
+      })
     })
 
     act.actVersions.push(actVersion._id)
-    act.save()
+    await act.save()
 
     federalLaw.actVersions.push(actVersion._id)
-    federalLaw.save()
+    await federalLaw.save()
 
     return res.send(messages.actVersionAdded)
   })
