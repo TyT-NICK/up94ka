@@ -1,9 +1,11 @@
-const router = require('express').Router();
+const router = require('express').Router()
 
-router.use('/auth', require('./routes/auth.routes'));
-router.use('/user', require('./routes/user.routes'));
-router.use('/admin', require('./routes/admin.routes'));
+router
+  .use('/auth', require('./routes/auth.routes'))
+  .use('/user', require('./routes/user.routes'))
+  .use('/admin', require('./routes/admin.routes'))
+  .use('/act', require('./routes/act.routes'))
 
-// router.use('/', require('./routes/not-found.routes'));
+// .use('/', require('./routes/not-found.routes'));
 
-module.exports = router;
+module.exports = router

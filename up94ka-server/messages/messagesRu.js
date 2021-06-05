@@ -14,4 +14,10 @@ module.exports = {
   notificationCreated: 'Оповещение создано',
   loginNeeded: 'Необходимо войти или зарегистрироваться',
   thanksForReporting: 'Благодарим за сообщение',
-};
+  punishmentTypeAdded: 'Новый вид наказания добавлен',
+  actVersionAdded: 'Редакция НПА добавлена',
+  actVersionAlreadyExists: 'Редакция НПА уже была внесена',
+  actVersionApproved: 'Редакция НПА одобрена',
+  actVersionDeleted: 'Редакция НПА удалена',
+  actVersionAlreadyDeleted: 'Редакция НПА уже была удалена',
+}
