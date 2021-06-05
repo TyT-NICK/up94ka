@@ -2,10 +2,12 @@ const router = require('express').Router()
 
 router
   .use('/auth', require('./routes/auth.routes'))
-  .use('/user', require('./routes/user.routes'))
-  .use('/admin', require('./routes/admin.routes'))
-  .use('/act', require('./routes/act.routes'))
-
-// .use('/', require('./routes/not-found.routes'));
+  .use('/users', require('./routes/user.routes'))
+  .use('/acts', require('./routes/act.routes'))
+  .use('/notificatrions', require('./routes/notification.routes'))
+  .use('/reports', require('./routes/report.routes'))
+  .use('/', (req, res) => {
+    res.status(404).send()
+  })
 
 module.exports = router

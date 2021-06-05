@@ -1,41 +1,37 @@
-const router = require('express').Router();
-const { User } = require('../models/user');
-const messages = require('../messages');
-const utils = require('../utils/utils');
-const Notification = require('../models/notification');
-const Report = require('../models/report');
+const router = require('express').Router()
+const User = require('../models/user')
+const messages = require('../messages')
+const utils = require('../utils/utils')
 
-router.get('/notifications', async (req, res) => {
-  const { user } = req.session;
-  if (!user) return res.status(403).send(messages.loginNeeded);
+router
+  .post('/:id/set-role', utils.checkIfUserIsAdmin, async (req, res) => {
+    const id = req.params.id
+    const { email, role } = req.body
 
-  const { role } = user;
+    let user = await User.findById(id).exec()
 
-  const notifications = await Notification.find({ to: 0 });
-  if (role >= 1) notifications.push(...await Notification.find({ to: 1 }));
-  if (role === 2) notifications.push(...await Notification.find({ to: 2 }));
+    if (!user) user = await User.findOne({ email }).exec()
+    if (!user) return res.status(404).send(messages.userNotFound)
 
-  return res.json(notifications);
-});
+    await user.updateOne({ role })
 
-router.post('/report', (req, res) => {
-  const { user } = req.session;
-  const reportInfo = req.body;
+    return res.send(messages.userUpdated)
+  })
 
-  const report = new Report({ ...reportInfo, from: user });
-  report.save();
+  .get('/:id', async (req, res) => {
+    const { id } = req.params
 
-  res.send(messages.thanksForReporting);
-});
+    const user = await User.findById(id).select('-password -role').exec()
 
-router.get('/:id', async (req, res) => {
-  const { id } = req.params;
+    if (!user) return res.status(404).send(messages.userNotFound)
 
-  const user = await User.findById(id).exec();
+    return res.send(user)
+  })
 
-  if (!user) return res.status(404).send(messages.userNotFound);
+  .get('/', async (req, res) => {
+    const users = await User.find().select('-password -role').exec()
 
-  return res.send(utils.removeFieldsFromObject(user._doc, 'password', 'role'));
-});
+    res.send(users)
+  })
 
-module.exports = router;
+module.exports = router

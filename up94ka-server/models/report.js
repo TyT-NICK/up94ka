@@ -1,10 +1,9 @@
-const mongoose = require('mongoose');
-const { userSchema } = require('./user');
+const mongoose = require('mongoose')
 
 const reportSchema = mongoose.Schema({
   text: String,
-  from: userSchema,
+  from: { type: mongoose.Types.ObjectId, ref: 'User' },
   postedAt: { type: Date, default: Date.now() },
-});
+})
 
-module.exports = mongoose.model('Report', reportSchema);
+module.exports = mongoose.model('Report', reportSchema)
