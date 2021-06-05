@@ -42,10 +42,13 @@ app.use((error, req, res, next) => {
   console.error(error.message)
   console.error(error.stack)
   res.status(500).send(messages.innerServerError)
-  next()
 })
 
-const connectionOptions = { useNewUrlParser: true, useUnifiedTopology: true }
+const connectionOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+}
 mongoose.connect(DB_CONNECTION, connectionOptions, (error) => {
   if (error) {
     console.error(error.message)
