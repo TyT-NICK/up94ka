@@ -1,0 +1,18 @@
+POST http://localhost:8080/admin/set-user-role HTTP/1.1
+content-type: application/json
+
+{
+  "email": "email",
+  "role": 0
+}
+###
+POST http://localhost:8080/admin/post-notification HTTP/1.1
+content-type: application/json
+
+{
+  "title": "n",
+  "text": "t",
+  "to": 2
+}
+###
+GET http://localhost:8080/admin/get-reports HTTP/1.1

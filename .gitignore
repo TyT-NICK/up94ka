@@ -6,7 +6,7 @@ up94ka-client/node_modules/
 # server-side
 up94ka-server/node_modules/
 up94ka-server/.env
-up94ka-server/requests/
+#up94ka-server/requests/
 
 
 # "git-clone-server": "git clone https://github.com/TyT-NICK/up94ka-server",

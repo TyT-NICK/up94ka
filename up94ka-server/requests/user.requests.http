@@ -1,0 +1,13 @@
+GET http://localhost:8080/users/60ae091e0298a61dac316022
+###
+GET http://localhost:8080/users/
+###
+GET http://localhost:8080/users/60b3732d7feee7262093a579
+###
+POST http://localhost:8080/users/60b3732d7feee7262093a579/set-role
+content-type: application/json
+
+{
+  "email": "email",
+  "role": 1
+}

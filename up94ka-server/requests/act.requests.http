@@ -1,0 +1,181 @@
+POST http://localhost:8080/acts/add-punishment-type
+content-type: application/json
+
+{
+  "name": "Смертная казнь",
+  "strictness": 13,
+  "isMainAvailable": true,
+  "isAdditionalAvailable": false
+}
+###
+POST http://localhost:8080/acts/
+content-type: application/json
+
+{
+  "act": {
+    "name": "Убийство",
+    "number": "105",
+    "part": 1
+  },
+  "federalLaw": {
+    "name": "N 377-ФЗ",
+    "publishDate": "2009-12-27T12:00:00.000Z"
+  },
+  "mainPunishments": [
+    {
+      "name": "Лишение свободы",
+      "rates": [
+        {
+          "from": 60,
+          "to": 180,
+          "mean": "month"
+        }
+      ],
+      "additionalPunishments": [
+        {
+          "name": "Ограничение свободы",
+          "optional": true,
+          "rates": [
+            {
+              "from": 0,
+              "to": 24,
+              "mean": "month"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+###
+PUT http://localhost:8080/acts/60bb85316fc3f03b1ca9518a
+content-type: application/json
+###
+DELETE  http://localhost:8080/acts/60bbba78d865500e90e807ef
+###
+POST http://localhost:8080/acts/
+content-type: application/json
+
+{
+  "act": {
+    "name": "Причинение смерти по неосторожности вследствие ненадлежащего исполнения лицом своих профессиональных обязанностей",
+    "number": "109",
+    "part": 2
+  },
+  "federalLaw": {
+    "name": "N 162-ФЗ",
+    "publishDate": "2003-12-08T12:00:00.000Z"
+  },
+  "mainPunishments": [
+    {
+      "name": "Ограничение свободы",
+      "rates": [
+        {
+          "from": 0,
+          "to": 36,
+          "mean": "month"
+        }
+      ],
+      "additionalPunishments": [
+      ]
+    },
+    {
+      "name": "Лишение свободы",
+      "rates": [
+        {
+          "from": 0,
+          "to": 36,
+          "mean": "month"
+        }
+      ],
+      "additionalPunishments": [
+        {
+          "name": "Лишение права занимать определенные должности или заниматься определенной деятельностью",
+          "optional": true,
+          "rates": [
+            {
+              "from": 0,
+              "to": 36,
+              "mean": "month"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+###
+POST http://localhost:8080/acts/
+content-type: application/json
+
+{
+  "act": {
+    "name": "Причинение смерти по неосторожности вследствие ненадлежащего исполнения лицом своих профессиональных обязанностей",
+    "number": "109",
+    "part": 2
+  },
+  "federalLaw": {
+    "name": "N 420-ФЗ",
+    "publishDate": "2011-12-07T12:00:00.000Z"
+  },
+  "mainPunishments": [
+    {
+      "name": "Ограничение свободы",
+      "rates": [
+        {
+          "from": 0,
+          "to": 36,
+          "mean": "month"
+        }
+      ],
+      "additionalPunishments": [
+      ]
+    },
+    {
+      "name": "Принудительные работы",
+      "rates": [
+        {
+          "from": 0,
+          "to": 36,
+          "mean": "month"
+        }
+      ],
+      "additionalPunishments": [
+        {
+          "name": "Лишение права занимать определенные должности или заниматься определенной деятельностью",
+          "optional": true,
+          "rates": [
+            {
+              "from": 0,
+              "to": 36,
+              "mean": "month"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Лишение свободы",
+      "rates": [
+        {
+          "from": 0,
+          "to": 36,
+          "mean": "month"
+        }
+      ],
+      "additionalPunishments": [
+        {
+          "name": "Лишение права занимать определенные должности или заниматься определенной деятельностью",
+          "optional": true,
+          "rates": [
+            {
+              "from": 0,
+              "to": 36,
+              "mean": "month"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
