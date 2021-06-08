@@ -1,0 +1,37 @@
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 var(--padding-v);
+  background: var(--col-main);
+  margin: 0 auto;
+  padding: var(--padding-v) var(--padding-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--col-text-light);
+  user-select: none;
+}
+
+.header__logo {
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.header__user-name {
+  cursor: pointer;
+  color: var(--col-additional);
+  text-decoration: underline;
+}
+
+.header__user-info {
+  position: relative;
+}
+
+.header__menu {
+  border-radius: 7px;
+  position: absolute;
+  top: 100%;
+  right: 0;
+}

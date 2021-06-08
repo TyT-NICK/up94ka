@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 14px;
+
+  --padding-v: 20px;
+  --padding-h: 30px;
+
+  --col-main: hsl(0, 0%, 25%);
+  --col-additional: hsl(35, 90%, 65%);
+
+  --col-text-light: hsl(0, 0%, 95%);
+  --col-text-dark: hsl(0, 0%, 10%);
+
+  --col-bg-main: hsl(0, 0%, 90%);
+  --col-bg-additional: hsl(0, 0%, 100%);
+}
