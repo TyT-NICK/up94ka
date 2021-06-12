@@ -1,0 +1,27 @@
+.punishment-form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 25px 7px;
+}
+
+.punishment-form .btn-submit {
+  grid-column: 2;
+}
+
+.punishment-form .input-set {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.punishment-form input {
+  max-width: 85px;
+  text-align: center;
+  /* margin: 0 0 0 auto; */
+}
+
+.punishment-form input:focus {
+  outline: none;
+  border-bottom: 1px solid var(--col-main);
+}

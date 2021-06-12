@@ -1,0 +1,15 @@
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--col-bg-additional);
+  padding: var(--padding-v) var(--padding-h);
+}
+
+.side-menu__report {
+  font-size: 0.95rem;
+}
+
+.side-menu__report-button {
+  text-decoration: underline;
+}
