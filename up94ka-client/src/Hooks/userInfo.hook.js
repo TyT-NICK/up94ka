@@ -1,3 +1,3 @@
 export const useUserInfo = () => {
-  return { userName: 'гость' }
+  return { userName: 'Артём' }
 }

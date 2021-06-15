@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 @import url('App.css');
 @import url('Header.css');
 @import url('PunishmentForm.css');
 @import url('SideMenu.css');
+@import url('Modal.css');
+@import url('AdminMenu.css');
+@import url('Menu.css');
 
 :root {
   font-size: 14px;
@@ -16,6 +20,7 @@
 
   --col-text-light: hsl(0, 0%, 95%);
   --col-text-dark: hsl(0, 0%, 10%);
+  --col-text-accent: hsl(0, 0%, 35%);
 
   --col-bg-main: hsl(0, 0%, 90%);
   --col-bg-additional: hsl(0, 0%, 100%);

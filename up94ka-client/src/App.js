@@ -1,24 +1,25 @@
-import { Header } from './Components/Header'
+import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
 } from 'react-router-dom'
-import './App.css'
-import { PunishmentPage } from './Pages/PunishmentPage'
+import { PunishmentPage } from './Pages/_PunishmentPage'
+import { AdminPage } from './Pages/_AdminPage'
 
 function App() {
   return (
     <Router>
-      <Header></Header>
-
       <Switch>
-        <Route path="/punishment">
+        <Route path='/punishment'>
           <PunishmentPage />
         </Route>
+        <Route path='/admin'>
+          <AdminPage />
+        </Route>
       </Switch>
-      <Redirect to="/punishment" />
+      <Redirect to='/punishment' />
     </Router>
   )
 }
