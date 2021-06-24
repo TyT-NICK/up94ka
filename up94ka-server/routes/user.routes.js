@@ -4,16 +4,15 @@ const messages = require('../messages')
 const utils = require('../utils/utils')
 
 router
-  .post('/:id/set-role', utils.checkIfUserIsAdmin, async (req, res) => {
-    const id = req.params.id
-    const { role } = req.body
+  .get('/:id/set-role/:roleId', utils.checkIfUserIsAdmin, async (req, res) => {
+    const { id, roleId } = req.params
 
     let user = await User.findById(id).exec()
 
     // if (!user) user = await User.findOne({ email }).exec()
     if (!user) return res.status(404).send(messages.userNotFound)
 
-    await user.updateOne({ role })
+    await user.updateOne({ role: roleId })
 
     return res.send(messages.userUpdated)
   })
