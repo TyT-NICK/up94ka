@@ -49,6 +49,17 @@ export const PunishmentPage = () => {
             onSubmit={formSubmitHandler}
             onChange={setInputs}
           />
+          <div className='card'>
+            <h2 className='card__header'>Тестовое наименование НПА</h2>
+            <div className='punishment-item'>
+              <p>Обязательные работы</p>
+              <p>От 15 до 200 часов</p>
+              <div className='punishment-item additional'>
+                Ограничение свободы
+                <p>От 4 до 7 месяцев</p>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
       {error && (

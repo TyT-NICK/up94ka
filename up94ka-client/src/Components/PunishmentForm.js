@@ -30,7 +30,7 @@ export const PunishmentForm = ({ onSubmit, inputs, onChange }) => {
     <form
       action=''
       onSubmit={(e) => onSubmit(e, inputs)}
-      className='punishment-form card'
+      className='punishment-form form card'
     >
       <label htmlFor=''>Квалификация преступления</label>
       <div className='input-set'>
@@ -38,6 +38,7 @@ export const PunishmentForm = ({ onSubmit, inputs, onChange }) => {
           type='text'
           placeholder='Номер'
           id='number'
+          className='form__input'
           value={inputs.number}
           name='number'
           onChange={handleInputChange}
@@ -46,6 +47,7 @@ export const PunishmentForm = ({ onSubmit, inputs, onChange }) => {
           type='text'
           placeholder='Часть'
           value={inputs.part}
+          className='form__input'
           name='part'
           onChange={handleInputChange}
         />
@@ -57,6 +59,7 @@ export const PunishmentForm = ({ onSubmit, inputs, onChange }) => {
           locale={ru}
           selected={inputs.crimeDate}
           onChange={handleCrimeDateChange}
+          className='form__input'
           minDate={Date.parse('Jan 1, 1996')}
           maxDate={Date.now()}
           dateFormat='dd.MM.yyyy'
@@ -67,6 +70,7 @@ export const PunishmentForm = ({ onSubmit, inputs, onChange }) => {
         <DatePicker
           name='decisionDate'
           locale={ru}
+          className='form__input'
           selected={inputs.decisionDate}
           onChange={handleDecisionDateChange}
           minDate={Date.parse('Jan 1, 1996')}

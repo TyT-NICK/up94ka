@@ -69,6 +69,14 @@ main {
   margin-top: 15px;
   padding: var(--padding-h);
 }
+.card__header {
+  font-size: 1.3rem;
+  grid-column: 1 / span 2;
+  margin-bottom: 10px;
+}
+.card__sub-header {
+  font-size: 1.1rem;
+}
 
 input {
   border: none;
@@ -81,10 +89,17 @@ input {
   border: none;
   padding: 1em;
   cursor: pointer;
-  color: var(--col-text-dark);
+  color: #fff;
+  /* color: var(--col-text-dark); */
 }
 .btn-submit {
   background: var(--col-additional);
+}
+.btn-ok {
+  background: #7cc769;
+}
+.btn-cancel {
+  background: #de6666;
 }
 .search {
   background: var(--col-bg-main);

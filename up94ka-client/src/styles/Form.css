@@ -1,0 +1,43 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 15px 7px;
+}
+
+.form__input-labeled {
+  display: contents;
+}
+
+.form__input {
+  max-width: 85px;
+  text-align: center;
+}
+
+.input-set {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.form__input-long {
+  width: 100%;
+  max-width: unset;
+  grid-column: 1 / span 2;
+}
+
+input[type='checkbox'] {
+  align-self: center;
+}
+
+.grid-width {
+  grid-column: 1 / span 2;
+}
+
+.additional {
+  margin-left: 25px;
+}
+
+.punishment-item {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}

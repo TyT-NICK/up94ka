@@ -14,3 +14,20 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+.side-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.side-menu ul {
+  padding: 0;
+}
+.side-menu li {
+  list-style: none;
+  padding: 7px 15px;
+  border-radius: 7px;
+  background: var(--col-additional);
+}

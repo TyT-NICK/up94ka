@@ -1,0 +1,13 @@
+.select li {
+  list-style: none;
+  padding: 7px;
+  cursor: pointer;
+}
+
+.select li.selected {
+  background: var(--col-bg-main);
+}
+
+.select ul {
+  padding: 0;
+}

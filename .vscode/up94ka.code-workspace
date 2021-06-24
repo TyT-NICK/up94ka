@@ -1,64 +1,49 @@
 {
-	"launch": {
-		"configurations": [
-			// Client
-			{
-				"name": "Client",
-				"request": "launch",
-				"runtimeArgs": [
-					"run-script",
-					"run-client"
-				],
-				"runtimeExecutable": "npm",
-				"skipFiles": [
-					"<node_internals>/**"
-				],
-				"type": "pwa-node"
-			},
-			// Server
-			{
-				"name": "Server",
-				"request": "launch",
-				"runtimeArgs": [
-					"run-script",
-					"run-server"
-				],
-				"runtimeExecutable": "npm",
-				"envFile": "${workspaceFolder}/up94ka-server/.env",
-				"skipFiles": [
-					"<node_internals>/**"
-				],
-				"type": "pwa-node"
-			},
-			// Client + Server
-			{
-				"name": "Server+Client",
-				"request": "launch",
-				"runtimeArgs": [
-					"run-script",
-					"dev"
-				],
-				"runtimeExecutable": "npm",
-				"envFile": "${workspaceFolder}/up94ka-server/.env",
-				"skipFiles": [
-					"<node_internals>/**"
-				],
-				"type": "pwa-node"
-			}
-		]
-	},
-	"folders": [
-		{
-			"name": "_Main",
-			"path": ".."
-		},
-		{
-			"name": "Client",
-			"path": "..\\up94ka-client"
-		},
-		{
-			"name": "Server",
-			"path": "..\\up94ka-server"
-		}
-	]
+  "launch": {
+    "configurations": [
+      // Client
+      {
+        "name": "Client",
+        "request": "launch",
+        "runtimeArgs": ["run-script", "run-client"],
+        "runtimeExecutable": "npm",
+        "skipFiles": ["<node_internals>/**"],
+        "type": "pwa-node"
+      },
+      // Server
+      {
+        "name": "Server",
+        "request": "launch",
+        "runtimeArgs": ["run-script", "run-server"],
+        "runtimeExecutable": "npm",
+        "envFile": "${workspaceFolder}/up94ka-server/.env",
+        "skipFiles": ["<node_internals>/**"],
+        "type": "pwa-node"
+      },
+      // Client + Server
+      {
+        "name": "Server+Client",
+        "request": "launch",
+        "runtimeArgs": ["run-script", "start"],
+        "runtimeExecutable": "npm",
+        "envFile": "${workspaceFolder}/up94ka-server/.env",
+        "skipFiles": ["<node_internals>/**"],
+        "type": "pwa-node"
+      }
+    ]
+  },
+  "folders": [
+    {
+      "name": "_Main",
+      "path": ".."
+    },
+    {
+      "name": "Client",
+      "path": "..\\up94ka-client"
+    },
+    {
+      "name": "Server",
+      "path": "..\\up94ka-server"
+    }
+  ]
 }

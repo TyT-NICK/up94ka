@@ -8,6 +8,8 @@
 @import url('Modal.css');
 @import url('AdminMenu.css');
 @import url('Menu.css');
+@import url('Form.css');
+@import url('Select.css');
 
 :root {
   font-size: 14px;
